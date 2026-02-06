@@ -1,8 +1,6 @@
-import Sidebar from "./Sidebar"
-import Topbar from "./Topbar"
-import hotels from "./data"
-import data from "./data.js";
-
+import Sidebar from "./Sidebar";
+import Topbar from "./Topbar";
+import hotels from "./data.js"; // Import unique avec extension .js
 
 function Hotels() {
   return (
@@ -13,7 +11,7 @@ function Hotels() {
         <Topbar />
 
         <div className="hotels-header">
-          <h2>Hôtels <span>8</span></h2>
+          <h2>Hôtels <span>{hotels.length}</span></h2>
           <button>+ Créer un nouveau hôtel</button>
         </div>
 
@@ -29,7 +27,7 @@ function Hotels() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Hotels
+export default Hotels;
