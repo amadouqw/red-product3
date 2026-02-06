@@ -1,7 +1,8 @@
 import Sidebar from "./Sidebar"
 import Topbar from "./Topbar"
-import hotels from "./data"
-import data from "./data.js";
+import data from "./data.js";  // data.js ou data.json doit exister
+
+
 
 
 function Hotels() {
