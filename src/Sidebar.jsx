@@ -15,30 +15,27 @@ function Sidebar() {
       </ul>
 
       <div className="user">
-        <p>MAMADOU NDOUR</p>
+        <p>Amadou Aw</p>
         <span>● en ligne</span>
       </div>
 
+      {/* CSS pour les liens */}
       <style>{`
         .sidebar-link {
           text-decoration: none;
-          color: white;      /* texte blanc */
-          font-weight: 600;
-          font-size: 1.1em;
+          color: #fff;           /* texte blanc par défaut */
+          font-weight: 600;       /* gras léger */
+          font-size: 1.1em;       /* légèrement plus grand */
           padding: 8px 12px;
           border-radius: 6px;
           display: block;
           transition: all 0.3s ease;
         }
 
+        /* Effet hover */
         .sidebar-link:hover {
-          background-color: #4caf50;
-          color: white;
-        }
-
-        .sidebar-link:active {
-          background-color: #388e3c;
-          color: white;
+          background-color: #4caf50; /* fond vert au survol */
+          color: #fff;               /* texte reste blanc */
         }
       `}</style>
     </div>
