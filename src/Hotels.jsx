@@ -1,7 +1,7 @@
 import { useState, useRef } from "react"
 import Sidebar from "./Sidebar"
 import Topbar from "./Topbar"
-import hotelsData from "./Data"
+import hotelsData from "./data"
 
 function Hotels() {
   const [hotels, setHotels] = useState(hotelsData)
