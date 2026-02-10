@@ -2,17 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // état pour ouvrir/fermer le menu
 
   return (
     <>
-      {/* Hamburger */}
+      {/* Hamburger visible sur mobile */}
       <button
         className="hamburger"
         onClick={() => setOpen(!open)}
         aria-label="Ouvrir le menu"
       >
-        &#9776;
+        &#9776; {/* ☰ */}
       </button>
 
       {/* Sidebar */}
@@ -24,12 +24,11 @@ function Sidebar() {
             <Link
               to="/dashboard"
               className="sidebar-link"
-              onClick={() => setOpen(false)}
+              onClick={() => setOpen(false)} // ferme le menu après clic
             >
               Tableau de bord
             </Link>
           </li>
-
           <li>
             <Link
               to="/hotels"
@@ -47,9 +46,9 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* CSS */}
+      {/* CSS + Media Queries */}
       <style>{`
-        /* Sidebar */
+        /* Sidebar par défaut */
         .sidebar {
           width: 220px;
           background-color: #222;
@@ -65,11 +64,6 @@ function Sidebar() {
           margin-bottom: 20px;
         }
 
-        .sidebar ul {
-          list-style: none;
-          padding: 0;
-        }
-
         .sidebar-link {
           display: block;
           color: #fff;
@@ -79,25 +73,21 @@ function Sidebar() {
           padding: 8px 12px;
           border-radius: 6px;
           margin-bottom: 10px;
-          transition: background 0.3s ease;
+          transition: all 0.3s ease;
         }
 
         .sidebar-link:hover {
           background-color: #4caf50;
         }
 
-        .user {
-          margin-top: 30px;
+        .user p, .user span {
+          margin-top: 20px;
+          display: block;
         }
 
-        .user span {
-          font-size: 0.8rem;
-          color: #4caf50;
-        }
-
-        /* Hamburger */
+        /* Hamburger (trois traits) */
         .hamburger {
-          display: none;
+          display: none; /* caché sur grands écrans */
           font-size: 2rem;
           background: none;
           border: none;
@@ -109,9 +99,9 @@ function Sidebar() {
           z-index: 1001;
         }
 
-        /* =====================
-           MOBILE / TABLETTE
-        ===================== */
+        /* =========================
+           Media Queries pour mobile
+        ========================= */
         @media (max-width: 768px) {
           .sidebar {
             position: fixed;
@@ -128,7 +118,7 @@ function Sidebar() {
           }
 
           .hamburger {
-            display: block;
+            display: block; /* visible sur mobile */
           }
 
           .sidebar h3 {
@@ -137,6 +127,7 @@ function Sidebar() {
 
           .sidebar-link {
             font-size: 0.95rem;
+            padding: 6px 10px;
           }
         }
 
@@ -145,12 +136,19 @@ function Sidebar() {
             width: 150px;
           }
 
-          .sidebar-link {
+          .sidebar h3 {
             font-size: 0.85rem;
           }
+          .topbar{
+            padding: 5px 10px;
+            
+          }
+          .sidebar-link {
+            font-size: 0.8rem;
+            padding: 5px 8px;
+          }
 
-          .user p,
-          .user span {
+          .user p, .user span {
             font-size: 0.75rem;
           }
         }
