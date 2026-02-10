@@ -2,17 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
-  const [open, setOpen] = useState(false); // état pour ouvrir/fermer le menu
+  const [open, setOpen] = useState(false);
 
   return (
     <>
-      {/* Hamburger visible sur mobile */}
+      {/* Hamburger */}
       <button
         className="hamburger"
         onClick={() => setOpen(!open)}
         aria-label="Ouvrir le menu"
       >
-        &#9776; {/* ☰ */}
+        &#9776;
       </button>
 
       {/* Sidebar */}
@@ -24,11 +24,12 @@ function Sidebar() {
             <Link
               to="/dashboard"
               className="sidebar-link"
-              onClick={() => setOpen(false)} // ferme le menu après clic
+              onClick={() => setOpen(false)}
             >
               Tableau de bord
             </Link>
           </li>
+
           <li>
             <Link
               to="/hotels"
@@ -46,9 +47,9 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* CSS + Media Queries */}
+      {/* CSS */}
       <style>{`
-        /* Sidebar par défaut */
+        /* Sidebar */
         .sidebar {
           width: 220px;
           background-color: #222;
@@ -64,6 +65,11 @@ function Sidebar() {
           margin-bottom: 20px;
         }
 
+        .sidebar ul {
+          list-style: none;
+          padding: 0;
+        }
+
         .sidebar-link {
           display: block;
           color: #fff;
@@ -73,21 +79,25 @@ function Sidebar() {
           padding: 8px 12px;
           border-radius: 6px;
           margin-bottom: 10px;
-          transition: all 0.3s ease;
+          transition: background 0.3s ease;
         }
 
         .sidebar-link:hover {
           background-color: #4caf50;
         }
 
-        .user p, .user span {
-          margin-top: 20px;
-          display: block;
+        .user {
+          margin-top: 30px;
         }
 
-        /* Hamburger (trois traits) */
+        .user span {
+          font-size: 0.8rem;
+          color: #4caf50;
+        }
+
+        /* Hamburger */
         .hamburger {
-          display: none; /* caché sur grands écrans */
+          display: none;
           font-size: 2rem;
           background: none;
           border: none;
@@ -99,9 +109,9 @@ function Sidebar() {
           z-index: 1001;
         }
 
-        /* =========================
-           Media Queries pour mobile
-        ========================= */
+        /* =====================
+           MOBILE / TABLETTE
+        ===================== */
         @media (max-width: 768px) {
           .sidebar {
             position: fixed;
@@ -118,7 +128,7 @@ function Sidebar() {
           }
 
           .hamburger {
-            display: block; /* visible sur mobile */
+            display: block;
           }
 
           .sidebar h3 {
@@ -127,7 +137,6 @@ function Sidebar() {
 
           .sidebar-link {
             font-size: 0.95rem;
-            padding: 6px 10px;
           }
         }
 
@@ -136,19 +145,12 @@ function Sidebar() {
             width: 150px;
           }
 
-          .sidebar h3 {
+          .sidebar-link {
             font-size: 0.85rem;
           }
-          .topbar{
-            padding: 5px 10px;
-            
-          }
-          .sidebar-link {
-            font-size: 0.8rem;
-            padding: 5px 8px;
-          }
 
-          .user p, .user span {
+          .user p,
+          .user span {
             font-size: 0.75rem;
           }
         }
