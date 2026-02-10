@@ -1,45 +1,162 @@
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="sidebar">
-      <h3>RED PRODUCT</h3>
+    <>
+      {/* Hamburger */}
+      <button
+        className="hamburger"
+        onClick={() => setOpen(!open)}
+        aria-label="Ouvrir le menu"
+      >
+        &#9776;
+      </button>
 
-      <ul>
-        <li>
-          <Link to="/dashboard" className="sidebar-link">Dashboard</Link>
-        </li>
-        <li>
-          <Link to="/hotels" className="sidebar-link">Liste des hôtels</Link>
-        </li>
-      </ul>
+      {/* Sidebar */}
+      <div className={`sidebar ${open ? "open" : ""}`}>
+        <h3>PRODUIT ROUGE</h3>
 
-      <div className="user">
-        <p>Amadou Aw</p>
-        <span>● en ligne</span>
+        <ul>
+          <li>
+            <Link
+              to="/dashboard"
+              className="sidebar-link"
+              onClick={() => setOpen(false)}
+            >
+              Tableau de bord
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/hotels"
+              className="sidebar-link"
+              onClick={() => setOpen(false)}
+            >
+              Liste des hôtels
+            </Link>
+          </li>
+        </ul>
+
+        <div className="user">
+          <p>Amadou Aw</p>
+          <span>● en ligne</span>
+        </div>
       </div>
 
-      {/* CSS pour les liens */}
+      {/* CSS */}
       <style>{`
+        /* Sidebar */
+        .sidebar {
+          width: 220px;
+          background-color: #222;
+          color: #fff;
+          padding: 20px;
+          min-height: 100vh;
+          box-sizing: border-box;
+          transition: transform 0.3s ease;
+        }
+
+        .sidebar h3 {
+          font-size: 1.2rem;
+          margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+          list-style: none;
+          padding: 0;
+        }
+
         .sidebar-link {
+          display: block;
+          color: #fff;
           text-decoration: none;
-          color: #fff;           /* texte blanc par défaut */
-          font-weight: 600;       /* gras léger */
-          font-size: 1.1em;       /* légèrement plus grand */
+          font-weight: 600;
+          font-size: 1.1rem;
           padding: 8px 12px;
           border-radius: 6px;
-          display: block;
-          transition: all 0.3s ease;
+          margin-bottom: 10px;
+          transition: background 0.3s ease;
         }
 
-        /* Effet hover */
         .sidebar-link:hover {
-          background-color: #4caf50; /* fond vert au survol */
-          color: #fff;               /* texte reste blanc */
+          background-color: #4caf50;
+        }
+
+        .user {
+          margin-top: 30px;
+        }
+
+        .user span {
+          font-size: 0.8rem;
+          color: #4caf50;
+        }
+
+        /* Hamburger */
+        .hamburger {
+          display: none;
+          font-size: 2rem;
+          background: none;
+          border: none;
+          color: #222;
+          cursor: pointer;
+          position: fixed;
+          top: 15px;
+          left: 15px;
+          z-index: 1001;
+        }
+
+        /* =====================
+           MOBILE / TABLETTE
+        ===================== */
+        @media (max-width: 768px) {
+          .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 180px;
+            transform: translateX(-100%);
+            z-index: 1000;
+          }
+
+          .sidebar.open {
+            transform: translateX(0);
+          }
+
+          .hamburger {
+            display: block;
+          }
+
+          .sidebar h3 {
+            font-size: 1rem;
+          }
+
+          .sidebar-link {
+            font-size: 0.95rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .sidebar {
+            width: 150px;
+          }
+
+          .sidebar-link {
+            font-size: 0.85rem;
+          }
+
+          .user p,
+          .user span {
+            font-size: 0.75rem;
+          }
         }
       `}</style>
-    </div>
-  )
+    </>
+  );
 }
 
-export default Sidebar
+export default Sidebar;
