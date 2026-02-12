@@ -95,20 +95,20 @@ function Sidebar() {
           color: #4caf50;
         }
 
-        /* Hamburger */
         .hamburger {
-          display: none;
-          font-size: 2rem;
-          background: none;
-          border: none;
-          color: #222;
-          cursor: pointer;
-          position: fixed;
-          top: 15px;
-          left: 15px;
-          z-index: 1001;
-        }
-
+  display: none;
+  font-size: 2rem;
+  background-color: #f7b731; /* fond jaune */
+  border: none;
+  color: #222; /* couleur des traits */
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
         /* =====================
            MOBILE / TABLETTE
         ===================== */

@@ -1,0 +1,90 @@
+.dashboard {
+    display: flex;
+    background: #f5f6fa;
+    min-height: 100vh;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 20px 40px;
+  }
+  
+  .dashboard-header h2 {
+    margin-bottom: 5px;
+  }
+  
+  .dashboard-header p {
+    color: gray;
+    margin-bottom: 30px;
+  }
+  
+  /* ===== CARDS ===== */
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card h3 {
+    margin: 0;
+    font-size: 22px;
+  }
+  
+  .card p {
+    margin: 5px 0;
+    font-weight: 600;
+  }
+  
+  .card small {
+    color: gray;
+  }
+  
+  /* ===== ICON STYLE ===== */
+  
+  .icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+  }
+  
+  .purple { background: #a55eea; }
+  .green { background: #20bf6b; }
+  .yellow { background: #f7b731; }
+  .red { background: #eb3b5a; }
+  .violet { background: #8854d0; }
+  .blue { background: #3867d6; }
+  
+  /* ===== RESPONSIVE ===== */
+  
+  @media (max-width: 992px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
