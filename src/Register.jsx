@@ -4,7 +4,7 @@ import "./Login.css"
 
 function Register() {
   const navigate = useNavigate()
-
+  const [nom, setnom] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -20,6 +20,14 @@ function Register() {
         <h3>Créer un compte</h3>
 
         <form onSubmit={handleRegister}>
+        <input
+            type="nom"
+            placeholder="nom"
+            className="input-field"
+            value={nom}
+            onChange={(e) => setnom(e.target.value)}
+            required
+          />
           <input
             type="email"
             placeholder="E-mail"
