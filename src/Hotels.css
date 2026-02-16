@@ -1,0 +1,77 @@
+/* Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background: white;
+    padding: 30px;
+    width: 700px;
+    border-radius: 8px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  /* Form rows */
+  .form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .form-row > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input, select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Actions */
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .save-btn {
+    padding: 10px 20px;
+    background: #4d555c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .save-btn:hover {
+    background: #3f464c;
+  }
+  
+  .close-btn {
+    padding: 10px 20px;
+    background: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
