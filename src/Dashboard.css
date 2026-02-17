@@ -1,6 +1,6 @@
 .dashboard {
     display: flex;
-    background: #f5f6fa;
+    background: #b2b9d7;
     min-height: 100vh;
   }
   
@@ -14,11 +14,11 @@
   }
   
   .dashboard-header p {
-    color: gray;
+    color: rgb(168, 171, 174);
     margin-bottom: 30px;
   }
   
-  /* ===== CARDS ===== */
+  /* ===== CARDS ===== */d
   
   .cards {
     display: grid;
@@ -26,34 +26,19 @@
     gap: 25px;
   }
   
-  .card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 🔥 3 par ligne */
     gap: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: 0.3s;
   }
   
-  .card:hover {
-    transform: translateY(-5px);
+  /* 📱 Mobile seulement */
+  @media (max-width: px) {
+    .cards {
+      grid-template-columns: 1fr; /* 1 seule carte par ligne */
+    }
   }
   
-  .card h3 {
-    margin: 0;
-    font-size: 22px;
-  }
-  
-  .card p {
-    margin: 5px 0;
-    font-weight: 600;
-  }
-  
-  .card small {
-    color: gray;
-  }
   
   /* ===== ICON STYLE ===== */
   
@@ -64,7 +49,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: rgb(172, 182, 183);
     font-size: 22px;
   }
   
@@ -88,3 +73,54 @@
       grid-template-columns: 1fr;
     }
   }
+  /* Bouton flottant en haut à droite */
+.logout-btn {
+  position: fixed;       /* reste en haut à droite même au scroll */
+  top: 20px;             /* distance depuis le haut */
+  right: 20px;           /* distance depuis la droite */
+  padding: 10px 20px;
+  background-color: #d63031;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;         /* au-dessus du Dashboard */
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #ff4d4d;
+}
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  background-color: #d63031;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #ff4d4d;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Desktop : 3 par ligne */
+  gap: 20px;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 par ligne */
+  }
+}

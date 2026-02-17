@@ -1,12 +1,23 @@
 import Sidebar from "./Sidebar"
 import Topbar from "./Topbar"
 import "./Dashboard.css"
-import { FaEnvelope, FaUsers, FaHotel } from "react-icons/fa"
-import { MdMessage, MdEmail } from "react-icons/md"
+import { FaUsers } from "react-icons/fa"
+import { MdEmail } from "react-icons/md"
 import { BsFillFileEarmarkTextFill } from "react-icons/bs"
 import { FaP } from "react-icons/fa6"
+import { useNavigate } from "react-router-dom"
+
 
 function Dashboard() {
+
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    navigate("/login")
+  }
+
+
   return (
     <div className="dashboard">
       <Sidebar />
@@ -17,6 +28,13 @@ function Dashboard() {
         <div className="dashboard-header">
           <h2>Bienvenue sur RED Product</h2>
           <p>Lorem ipsum dolor sit amet consectetur</p>
+        </div>
+
+        {/* 🔴 Bouton Déconnexion au-dessus des icônes */}
+        <div className="logout-container">
+          <button className="logout-btn" onClick={handleLogout}>
+            Déconnexion
+          </button>
         </div>
 
         <div className="cards">
@@ -34,8 +52,7 @@ function Dashboard() {
 
           <div className="card">
             <div className="icon green">
-              
-            <FaP />
+              <FaP />
             </div>
             <div>
               <h3>40</h3>
@@ -68,7 +85,7 @@ function Dashboard() {
 
           <div className="card">
             <div className="icon violet">
-            <FaP />
+              <FaP />
             </div>
             <div>
               <h3>40</h3>
@@ -91,6 +108,7 @@ function Dashboard() {
         </div>
       </div>
     </div>
+    
   )
 }
 

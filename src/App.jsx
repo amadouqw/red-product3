@@ -5,6 +5,7 @@ import Hotels from "./Hotels"
 import ResetPassword from "./ResetPassword"
 import Register from "./Register"
 
+
 function App() {
   const isAuth = localStorage.getItem("auth")
 
@@ -12,6 +13,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Login />} />
       
+      <Route path="/login" element={<Login />} />
 
       <Route
         path="/dashboard"
